@@ -1,0 +1,93 @@
+{
+  "name": "chengpeiquan.com",
+  "version": "0.1.0",
+  "description": "My personal website, technology stack based on Vue.js 3.0, and Vite 2.0, use Server Side Generation.",
+  "author": "DevKnight",
+  "homepage": "https://chengpeiquan.com/",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development vite --host",
+    "build": "cross-env NODE_ENV=production vite-ssg build && esno ./scripts/rss.ts",
+    "lint": "eslint src --ext .js,.ts",
+    "prettier": "prettier --write src",
+    "git": "git add . && git commit -m \"chore: back up some code adjustments.\" && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chengpeiquan/chengpeiquan.com.git"
+  },
+  "dependencies": {
+    "@iconify/iconify": "^2.0.4",
+    "@vueuse/core": "^6.3.3",
+    "@vueuse/head": "^0.6.0",
+    "dayjs": "^1.10.4",
+    "nprogress": "^0.2.0",
+    "vue": "^3.2.11",
+    "vue-router": "^4.0.11"
+  },
+  "devDependencies": {
+    "@iconify/json": "^1.1.401",
+    "@octokit/rest": "^18.10.0",
+    "@types/diacritics": "^1.3.1",
+    "@types/fs-extra": "^9.0.12",
+    "@types/node": "^16.9.1",
+    "@types/nprogress": "^0.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "@vitejs/plugin-vue": "^1.6.2",
+    "@vue/compiler-sfc": "^3.2.11",
+    "@vue/server-renderer": "^3.2.11",
+    "@vuedx/typecheck": "^0.7.4",
+    "@vuedx/typescript-plugin-vue": "^0.7.4",
+    "chalk": "^4.1.2",
+    "cross-env": "^7.0.3",
+    "diacritics": "^1.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.17.0",
+    "esno": "^0.9.1",
+    "feed": "^4.2.2",
+    "fs-extra": "^9.1.0",
+    "gray-matter": "^4.0.3",
+    "husky": "4.2.3",
+    "lint-staged": "^11.1.2",
+    "markdown-it": "^12.2.0",
+    "markdown-it-anchor": "^8.3.0",
+    "markdown-it-external-links": "^0.0.6",
+    "markdown-it-implicit-figures": "^0.10.0",
+    "markdown-it-prism": "^2.2.0",
+    "markdown-it-shiki": "^0.2.3",
+    "markdown-it-table-of-contents": "^0.5.2",
+    "postcss": "^8.2.10",
+    "postcss-nested": "^5.0.3",
+    "prettier": "^2.3.1",
+    "prism-theme-vars": "^0.2.2",
+    "typescript": "^4.4.3",
+    "unplugin-vue-components": "^0.15.0",
+    "vite": "^2.5.7",
+    "vite-plugin-banner": "^0.1.3",
+    "vite-plugin-icons": "^0.6.2",
+    "vite-plugin-md": "^0.6.7",
+    "vite-plugin-pages": "^0.18.0",
+    "vite-plugin-purge-icons": "^0.7.0",
+    "vite-plugin-windicss": "^1.4.2",
+    "vite-ssg": "^0.15.1",
+    "vue-baidu-analytics": "^2.2.0",
+    "windicss": "^3.1.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "node scripts/verifyCommit.js"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
